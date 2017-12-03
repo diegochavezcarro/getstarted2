@@ -49,11 +49,15 @@ docker-machine ssh myvm2 "docker swarm join --token SWMTKN-1-10v6ngr7n8a2oyu409q
 
 13. Repeat step 9. New virtual machine should start a new container. View apps from step 8.
 
-14. Add other vm. Add this to swarm as a worker. Kill myvm2 (docker-machine rm myvm2) or just leave the swarm (docker-machine ssh myvm2 "docker swarm leave"). You should see containers automatically recreated in other vms.
+14. Add other vm. Add this to swarm as a worker. Kill myvm2 (docker-machine rm myvm2) or just leave the swarm (docker-machine ssh myvm2 "docker swarm leave"). You should see containers automatically recreated in other vms. This command is stronger:
+
+docker-machine ssh myvm1 "docker node rm myvm2 --force"
+
 
 15. Any time you could see state of vms with these:
 
  docker-machine ssh myvm1 "docker node ls"
+ 
  docker-machine ls
 
 
