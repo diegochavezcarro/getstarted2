@@ -31,11 +31,13 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - "/c/Users/USER/docker/getstarted2:/data"
+      - db-data:/data
     deploy:
       placement:
         constraints: [node.role == manager] 
     networks:
       - webnet
+volumes:
+  db-data:
 networks:
   webnet:
